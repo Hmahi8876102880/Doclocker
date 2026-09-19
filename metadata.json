@@ -1,0 +1,10 @@
+{
+  "name": "DocLocker",
+  "description": "Store, view, and organize documents & identity cards without any internet connection",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

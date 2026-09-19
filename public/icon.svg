@@ -1,0 +1,349 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <!-- Soft Shadows -->
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.18" />
+    </filter>
+    <filter id="textShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#000000" flood-opacity="0.28" />
+    </filter>
+    <filter id="safeInnerShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="-4" dy="6" stdDeviation="8" flood-color="#7c2d12" flood-opacity="0.25" />
+    </filter>
+
+    <!-- Gradients for 3D Orange Safe -->
+    <linearGradient id="safeOuterFront" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#FF8833" />
+      <stop offset="40%" stop-color="#FF6B10" />
+      <stop offset="100%" stop-color="#E65100" />
+    </linearGradient>
+
+    <linearGradient id="safeTopHighlight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFA866" />
+      <stop offset="100%" stop-color="#FF7A1A" />
+    </linearGradient>
+
+    <linearGradient id="safeRightDepth" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D84315" />
+      <stop offset="100%" stop-color="#BF360C" />
+    </linearGradient>
+
+    <linearGradient id="doorFrontGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF8A38" />
+      <stop offset="60%" stop-color="#FF6A0D" />
+      <stop offset="100%" stop-color="#EA5204" />
+    </linearGradient>
+
+    <linearGradient id="doorEdgeGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#E64A19" />
+      <stop offset="100%" stop-color="#BF360C" />
+    </linearGradient>
+
+    <linearGradient id="doorTopGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#FF781F" />
+      <stop offset="100%" stop-color="#FFA15C" />
+    </linearGradient>
+
+    <!-- Inner Chamber Colors -->
+    <linearGradient id="chamberWall" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2D1F17" />
+      <stop offset="100%" stop-color="#1B120C" />
+    </linearGradient>
+
+    <!-- White Bevel & Dial Wheel -->
+    <linearGradient id="whiteRim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#E2E8F0" />
+    </linearGradient>
+
+    <linearGradient id="wheelGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#F1F5F9" />
+      <stop offset="100%" stop-color="#CBD5E1" />
+    </linearGradient>
+
+    <!-- Text Gradient -->
+    <linearGradient id="orangeTextGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF8229" />
+      <stop offset="50%" stop-color="#FF6200" />
+      <stop offset="100%" stop-color="#E64A00" />
+    </linearGradient>
+  </defs>
+
+  <!-- Ground Ambient Cast Shadow -->
+  <ellipse cx="460" cy="740" rx="340" ry="48" fill="#000000" opacity="0.12" />
+  <ellipse cx="490" cy="735" rx="260" ry="34" fill="#000000" opacity="0.16" />
+
+  <!-- ============================================== -->
+  <!-- 1. MAIN SAFE BODY (3D Perspective Box)         -->
+  <!-- ============================================== -->
+  <g filter="url(#softShadow)">
+    <!-- Safe Top Face (3D Thickness Bevel) -->
+    <path d="M 230 260 
+             C 230 195, 275 160, 340 145 
+             L 600 85 
+             C 660 70, 715 105, 715 165 
+             L 715 185 
+             L 340 245 
+             C 280 255, 230 260, 230 260 Z" 
+          fill="url(#safeTopHighlight)" />
+
+    <!-- Safe Right Outer Face (Thickness) -->
+    <path d="M 685 175 
+             C 715 185, 725 210, 725 250 
+             L 725 610 
+             C 725 660, 690 690, 650 710 
+             L 590 735 
+             L 590 320 
+             L 685 175 Z" 
+          fill="url(#safeRightDepth)" />
+
+    <!-- Safe Main Front Outer Frame (Orange Rounded Body) -->
+    <rect x="180" y="85" width="530" height="710" rx="100" 
+          transform="matrix(0.89 -0.18 0.05 0.98 40 100)" 
+          fill="url(#safeOuterFront)" />
+  </g>
+
+  <!-- Safe Front Body (Refined Geometry) -->
+  <g>
+    <!-- Outer Orange Shell -->
+    <path d="M 270 210 
+             C 210 240, 175 300, 175 375 
+             L 175 665 
+             C 175 745, 225 795, 305 795 
+             L 570 735 
+             C 645 720, 695 665, 695 585 
+             L 695 295 
+             C 695 215, 645 165, 565 175 
+             Z" 
+          fill="url(#safeOuterFront)" stroke="#FF9C54" stroke-width="4" />
+
+    <!-- Inner White Thick Bevel Rim -->
+    <path d="M 295 240 
+             C 255 260, 235 300, 235 350 
+             L 235 635 
+             C 235 690, 270 725, 325 725 
+             L 535 680 
+             C 590 670, 625 630, 625 575 
+             L 625 295 
+             C 625 240, 590 205, 535 212 
+             Z" 
+          fill="url(#whiteRim)" filter="url(#safeInnerShadow)" />
+
+    <!-- Dark Inner Safe Chamber Interior -->
+    <path d="M 315 265 
+             C 285 280, 270 310, 270 350 
+             L 270 615 
+             C 270 660, 295 685, 340 685 
+             L 520 648 
+             C 565 640, 590 605, 590 560 
+             L 590 310 
+             C 590 265, 565 240, 520 245 
+             Z" 
+          fill="url(#chamberWall)" />
+
+    <!-- Top Shelf Documents Stack -->
+    <!-- Document Stack Base Shadow -->
+    <ellipse cx="445" cy="485" rx="140" ry="25" fill="#000000" opacity="0.4" />
+
+    <!-- Document Sheets (Top Stack) -->
+    <g transform="translate(15, -10)">
+      <!-- Sheet 1 (Bottom) -->
+      <path d="M 310 475 L 530 435 L 610 330 L 390 365 Z" fill="#E2E8F0" />
+      <!-- Sheet 2 -->
+      <path d="M 310 468 L 530 428 L 610 323 L 390 358 Z" fill="#CBD5E1" />
+      <!-- Sheet 3 -->
+      <path d="M 310 460 L 530 420 L 610 315 L 390 350 Z" fill="#E2E8F0" />
+      <!-- Sheet 4 -->
+      <path d="M 310 452 L 530 412 L 610 307 L 390 342 Z" fill="#F8FAFC" />
+      <!-- Top Paper Sheet (Clean Crisp White) -->
+      <path d="M 310 445 L 535 405 L 615 300 L 390 335 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+      <line x1="360" y1="410" x2="490" y2="385" stroke="#94A3B8" stroke-width="3" stroke-linecap="round" opacity="0.4" />
+      <line x1="375" y1="390" x2="520" y2="365" stroke="#94A3B8" stroke-width="3" stroke-linecap="round" opacity="0.4" />
+      <line x1="390" y1="370" x2="550" y2="345" stroke="#94A3B8" stroke-width="3" stroke-linecap="round" opacity="0.4" />
+    </g>
+
+    <!-- Chamber White Divider Shelf -->
+    <path d="M 270 480 L 590 430 L 590 448 L 270 498 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+    <path d="M 270 498 L 590 448 L 590 462 L 270 512 Z" fill="#94A3B8" opacity="0.3" />
+
+    <!-- Bottom Shelf Documents Stack -->
+    <ellipse cx="435" cy="640" rx="130" ry="22" fill="#000000" opacity="0.45" />
+
+    <g transform="translate(15, 80)">
+      <!-- Sheet 1 -->
+      <path d="M 305 525 L 515 488 L 585 410 L 375 445 Z" fill="#E2E8F0" />
+      <!-- Sheet 2 -->
+      <path d="M 305 518 L 515 481 L 585 403 L 375 438 Z" fill="#CBD5E1" />
+      <!-- Sheet 3 -->
+      <path d="M 305 510 L 515 473 L 585 395 L 375 430 Z" fill="#E2E8F0" />
+      <!-- Sheet 4 (Top Paper) -->
+      <path d="M 305 502 L 520 465 L 590 387 L 375 422 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+      <line x1="350" y1="480" x2="475" y2="458" stroke="#94A3B8" stroke-width="3" stroke-linecap="round" opacity="0.4" />
+      <line x1="365" y1="462" x2="505" y2="440" stroke="#94A3B8" stroke-width="3" stroke-linecap="round" opacity="0.4" />
+      <line x1="380" y1="444" x2="535" y2="422" stroke="#94A3B8" stroke-width="3" stroke-linecap="round" opacity="0.4" />
+    </g>
+
+    <!-- White Safe Door Hinges on Left Edge -->
+    <!-- Top Hinge -->
+    <g transform="translate(260, 345)">
+      <rect x="-10" y="0" width="22" height="76" rx="9" fill="url(#whiteRim)" stroke="#CBD5E1" stroke-width="2" filter="url(#softShadow)" />
+      <line x1="-8" y1="38" x2="10" y2="38" stroke="#94A3B8" stroke-width="2" />
+    </g>
+    <!-- Bottom Hinge -->
+    <g transform="translate(260, 575)">
+      <rect x="-10" y="0" width="22" height="76" rx="9" fill="url(#whiteRim)" stroke="#CBD5E1" stroke-width="2" filter="url(#softShadow)" />
+      <line x1="-8" y1="38" x2="10" y2="38" stroke="#94A3B8" stroke-width="2" />
+    </g>
+  </g>
+
+  <!-- ============================================== -->
+  <!-- 2. OPEN SAFE DOOR (Angled Open to the Right)   -->
+  <!-- ============================================== -->
+  <g filter="url(#softShadow)">
+    <!-- Door Drop Shadow on Ground -->
+    <path d="M 480 730 L 840 680 L 860 705 L 510 755 Z" fill="#000000" opacity="0.18" />
+
+    <!-- Door Top Thickness Bevel -->
+    <path d="M 480 415 
+             L 525 390 
+             L 865 240 
+             C 885 230, 895 240, 890 260 
+             L 845 285 
+             L 480 435 Z" 
+          fill="url(#doorTopGrad)" />
+
+    <!-- Door Outer Edge / Side Thickness Face -->
+    <path d="M 845 285 
+             L 890 260 
+             C 900 270, 905 285, 905 310 
+             L 905 645 
+             C 905 670, 890 685, 875 690 
+             L 840 705 
+             L 840 285 Z" 
+          fill="url(#doorEdgeGrad)" />
+
+    <!-- Door Front Face (Vibrant Glossy Orange) -->
+    <path d="M 480 425 
+             C 480 420, 485 415, 495 410 
+             L 820 270 
+             C 835 262, 845 272, 845 290 
+             L 845 680 
+             C 845 700, 830 710, 815 715 
+             L 495 835 
+             C 485 840, 480 835, 480 820 
+             Z" 
+          fill="url(#doorFrontGrad)" stroke="#FFA15C" stroke-width="3" />
+
+    <!-- Door Border Inner Inset Groove -->
+    <path d="M 505 450 
+             L 825 305 
+             L 825 665 
+             L 505 795 
+             Z" 
+          fill="none" stroke="#FF9447" stroke-width="3" opacity="0.5" />
+
+    <!-- ============================================== -->
+    <!-- 3. WHITE COMBINATION VAULT WHEEL LOCK          -->
+    <!-- ============================================== -->
+    <!-- Wheel Group positioned on the Door Face -->
+    <g transform="translate(695, 545) skewY(-16) scale(0.95, 1.05)">
+      <!-- Wheel Shadow -->
+      <circle cx="8" cy="14" r="92" fill="#000000" opacity="0.2" />
+
+      <!-- White Mounting Base Flange -->
+      <ellipse cx="0" cy="0" rx="90" ry="90" fill="url(#whiteRim)" stroke="#CBD5E1" stroke-width="4" />
+      <ellipse cx="0" cy="0" rx="72" ry="72" fill="#E2E8F0" />
+      <ellipse cx="0" cy="0" rx="66" ry="66" fill="#F8FAFC" />
+
+      <!-- Vault Locking Wheel Spokes & Outer Rim -->
+      <!-- Circular Wheel Rim -->
+      <circle cx="0" cy="0" r="56" fill="none" stroke="url(#wheelGrad)" stroke-width="14" filter="url(#softShadow)" />
+      <circle cx="0" cy="0" r="56" fill="none" stroke="#FFFFFF" stroke-width="8" />
+
+      <!-- 6 Vault Wheel Spokes/Handles -->
+      <!-- Spoke 1 & 4 (Vertical) -->
+      <rect x="-8" y="-84" width="16" height="168" rx="8" fill="url(#wheelGrad)" stroke="#CBD5E1" stroke-width="2" />
+      <!-- Spoke 2 & 5 (60 deg) -->
+      <rect x="-8" y="-84" width="16" height="168" rx="8" fill="url(#wheelGrad)" stroke="#CBD5E1" stroke-width="2" transform="rotate(60)" />
+      <!-- Spoke 3 & 6 (120 deg) -->
+      <rect x="-8" y="-84" width="16" height="168" rx="8" fill="url(#wheelGrad)" stroke="#CBD5E1" stroke-width="2" transform="rotate(120)" />
+
+      <!-- Center Hub Boss -->
+      <circle cx="0" cy="0" r="28" fill="url(#wheelGrad)" stroke="#94A3B8" stroke-width="2" />
+      <circle cx="0" cy="0" r="20" fill="#FFFFFF" />
+      <circle cx="-4" cy="-4" r="6" fill="#FFFFFF" opacity="0.8" />
+
+      <!-- Right Locking Latch Bolt Housing Block -->
+      <rect x="76" y="-22" width="46" height="44" rx="8" fill="url(#whiteRim)" stroke="#CBD5E1" stroke-width="2.5" filter="url(#softShadow)" />
+      <rect x="86" y="-12" width="16" height="24" rx="4" fill="#94A3B8" opacity="0.4" />
+    </g>
+  </g>
+
+  <!-- ============================================== -->
+  <!-- 4. 3D ASSAMESE SCRIPT TYPOGRAPHY "ডকলকাৰ"       -->
+  <!-- ============================================== -->
+  <g transform="translate(512, 915)" filter="url(#textShadow)">
+    <!-- Layer 1: Dark Ground Drop Shadow -->
+    <text x="0" y="8" 
+          text-anchor="middle" 
+          font-family="'Noto Sans Bengali', 'Lohit Bengali', 'Lohit Assamese', 'Mukti', sans-serif" 
+          font-size="118" 
+          font-weight="900" 
+          fill="#5c1d06" 
+          stroke="#5c1d06" 
+          stroke-width="32" 
+          stroke-linejoin="round">
+      ডকলকাৰ
+    </text>
+
+    <!-- Layer 2: White 3D Bevel / Thick Border Extrusion -->
+    <text x="0" y="4" 
+          text-anchor="middle" 
+          font-family="'Noto Sans Bengali', 'Lohit Bengali', 'Lohit Assamese', 'Mukti', sans-serif" 
+          font-size="118" 
+          font-weight="900" 
+          fill="#FFFFFF" 
+          stroke="#FFFFFF" 
+          stroke-width="26" 
+          stroke-linejoin="round">
+      ডকলকাৰ
+    </text>
+
+    <!-- Layer 3: Secondary White Crisp Outline -->
+    <text x="0" y="0" 
+          text-anchor="middle" 
+          font-family="'Noto Sans Bengali', 'Lohit Bengali', 'Lohit Assamese', 'Mukti', sans-serif" 
+          font-size="118" 
+          font-weight="900" 
+          fill="#FFFFFF" 
+          stroke="#FFFFFF" 
+          stroke-width="16" 
+          stroke-linejoin="round">
+      ডকলকাৰ
+    </text>
+
+    <!-- Layer 4: Vibrant 3D Orange Face -->
+    <text x="0" y="0" 
+          text-anchor="middle" 
+          font-family="'Noto Sans Bengali', 'Lohit Bengali', 'Lohit Assamese', 'Mukti', sans-serif" 
+          font-size="118" 
+          font-weight="900" 
+          fill="url(#orangeTextGrad)">
+      ডকলকাৰ
+    </text>
+
+    <!-- Layer 5: Top Crisp Highlight Glow -->
+    <text x="0" y="-1" 
+          text-anchor="middle" 
+          font-family="'Noto Sans Bengali', 'Lohit Bengali', 'Lohit Assamese', 'Mukti', sans-serif" 
+          font-size="118" 
+          font-weight="900" 
+          fill="none" 
+          stroke="#FFA666" 
+          stroke-width="2" 
+          opacity="0.6">
+      ডকলকাৰ
+    </text>
+  </g>
+</svg>
